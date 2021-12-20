@@ -1,0 +1,33 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+   string a,b;int sum=0,y,n=0;
+    getline(cin,a);
+    getline(cin,b);
+    b=' '+b+' ';
+    a=' '+a+' ';
+    for(int i=0;i<b.length();i++)
+    {
+        b[i]=tolower(b[i]);
+    }
+    for(int i=0;i<a.length();i++)
+    {
+        a[i]=tolower(a[i]);
+    }
+    for(int i=0;i<b.length();i++)
+    {
+        n=b.find(a,n);
+        if(i==0)y=n;
+        if(n==-1)break;
+        else     
+        {
+        sum++;
+        b.erase(n,a.length()-1);
+        }
+    }
+    if(sum==0)cout<<-1;
+    else      cout<<sum<<" "<<y;
+    return 0;
+ }

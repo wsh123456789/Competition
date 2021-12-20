@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+#include <stdio.h>
+using namespace std;
+bool pd_h(int x){
+	int y=x,num=0;
+	while(y!=0){
+		num=num*10+y%10;
+		y/=10;
+	}
+	if(num==x) return 1;
+	else return 0;
+	
+}
+bool pd_s(int x){
+	int flag = 1;
+	for(int i = 2;i <= sqrt(x);i++)
+		if(x%i==0){
+			flag = 0;
+			break;
+		}
+	return flag;
+}
+int main(){
+	int a,b;
+	cin>>a>>b;
+	if(b>10000000)
+		b=10000000;
+	for(int i = a; i <=b ; i++)
+	{
+		if(pd_h(i)&&pd_s(i)){
+			cout<<i<<endl;
+		}
+	}
+	return 0;
+}

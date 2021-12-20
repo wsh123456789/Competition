@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,ans;
+string m,st,s;
+int zhuanhuan2(char x)
+{
+	if(x>=0&&x<=9) return x+'0';
+	if(x>=10&&x<=16) return x+'A'-10;
+}
+int zhuanhuan(char x)
+{
+	if(x>='0'&&x<='9') return x-'0';
+	if(x>='A'&&x<='Z') return x-'A'+10;
+}
+int pd()
+{
+	int l=m.size(),bo=1;
+	for(int i=0;i<l;i++)
+	  if(m[i]!=m[l-i-1]) bo=0;
+	return bo;
+}
+void yunsuan()
+{
+	int l=m.size(),s[210];string x=m;
+	memset(s,0,sizeof(s));
+	for(int i=0;i<l;i++) x[i]=m[l-i-1];
+	for(int i=1;i<=l;i++)
+	{
+		s[i]+=(zhuanhuan(x[i-1])+zhuanhuan(m[i-1]));
+		s[i+1]+=s[i]/n;
+		s[i]%=n;
+	}
+	if(s[l+1]>0) l++;m="";
+	for(int i=0;i<l;i++) m+=zhuanhuan2(s[l-i]);
+}
+int main()
+{
+	cin>>n>>m;
+	while(1)
+	{
+		if(pd()) {cout<<"STEP="<<ans;break;}
+		if(ans>=30) {cout<<"Impossible!";break;}
+		yunsuan();
+		ans++;
+	}
+	return 0;
+}

@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct student{
+	string name;
+	int c;
+	int m;
+	int e;
+	int sum;
+}stu[100000];
+bool pd_d(int a,int b){
+	if(abs(a-b)<=5)
+		return 1;
+	else
+		return 0;
+}
+bool pd_z(int a,int b){
+	if(abs(a-b)<=10)
+		return 1;
+	else
+		return 0;
+}
+int main(){
+	int n;
+	cin>>n;
+	for(int i = 0 ; i < n ; i++){
+		cin>>stu[i].name>>stu[i].c>>stu[i].m>>stu[i].e;
+		stu[i].sum = stu[i].c+stu[i].m+stu[i].e;
+	}
+	for(int i = 0 ; i < n ; i++){
+		for(int j = i+1; j < n ; j++){
+			if(pd_d(stu[i].c,stu[j].c)&&pd_d(stu[i].m,stu[j].m)&&pd_d(stu[i].e,stu[j].e)&&pd_z(stu[i].sum,stu[j].sum)){
+				cout<<stu[i].name<<" "<<stu[j].name<<endl;
+			}
+		}
+	}
+	return 0;
+}

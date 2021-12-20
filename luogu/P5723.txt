@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main(){
+	long a;
+	cin>>a;
+	long ans,count = 0,sum = 0;
+	for(long i = 2; i <= a; i++){
+		ans = 0;
+		for(long j = 2 ; j < i; j++){
+			if(i % j == 0)
+			ans++;
+		}
+		if(ans == 0){
+			if(sum+i > a) break;
+			sum+=i;
+			cout<<i<<endl;
+			count++;
+			
+		}
+	}
+	cout<<count<<endl;
+} 

@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct city{
+	int p;
+	int k;
+	string a;
+}c[150]; 
+int main(){
+	int min = 999999999;
+	int y;
+	int i = 0;
+	while(1){
+		cin>>c[i].p>>c[i].k>>c[i].a;
+		if(c[i].k==0)
+			break;
+		i++;
+	}
+	for(int m = 0 ;;m++){
+		int sum = 0;
+		for(int n = 0 ;;n++){
+			if(n == m) continue;
+			else{
+				sum+=c[n].p*abs(c[m].k-c[n].k);
+			}
+			if(c[n].k==0)
+				break;
+		}	
+		if(sum<=min){
+			min = sum;
+			y = m;
+		}
+		if(c[m].k==0)
+			break;
+		
+	}
+	cout<<c[y].a<<" "<<min<<endl;
+	return 0;
+}

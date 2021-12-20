@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,m,now=1,direction,num;
+int side[100005];
+char name[100005][15]; 
+int main(){
+    cin>>n>>m;
+    for(int i=1;i<=n;i++){
+        cin>>side[i]>>name[i];
+    }
+    for(int i=1;i<=m;i++){
+        cin>>direction>>num;
+        num*=direction*2-1;
+        num*=1-side[now]*2;
+        now+=num;
+        while(now>n){
+            now-=n;
+        }
+        while(now<1){
+            now+=n; 
+        }
+    }
+    cout<<name[now];
+    return 0;
+}

@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+struct student{
+	string name;
+	int c;
+	int m;
+	int e;
+}stu[100000];
+int main(){
+	int n,max=0,ans=0;
+	cin>>n;
+	for(int i = 0 ; i < n ; i++){
+		int sum = 0;
+		cin>>stu[i].name>>stu[i].c>>stu[i].m>>stu[i].e;
+		sum = stu[i].c+stu[i].m+stu[i].e;
+		if(sum>max){
+			max = sum;
+			ans = i;
+		}
+	}
+	cout<<stu[ans].name<<" "<<stu[ans].c<<" "<<stu[ans].m<<" "<<stu[ans].e<<endl;
+}

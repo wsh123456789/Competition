@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main(){
+	long int n,sum,i,num,j,m;
+	cin>>n;
+	for(i=0;i<n;i++){
+		cin>>sum;
+		num=12;
+		if(sum==1)
+			cout<<2<<endl;
+		if(sum==2)
+			cout<<num<<endl;
+		if(sum>2){
+			m=19;
+			for(j=3;j<=sum;j++){
+				num+=m;
+				m+=9;
+			}
+			cout<<num<<endl;
+		}
+	}
+}

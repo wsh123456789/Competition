@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int sum=10;
+	for(sum;sum<=1000;sum++){
+		if(sum%2==0&&sum%3==0&&sum%7==0)
+			cout<<sum<<endl;
+	}
+}

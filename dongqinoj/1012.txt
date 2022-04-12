@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int a,b,n,T,i,j;
+	int F[100];
+	cin>>T;
+	for(i=1;i<=T;i++){
+		cin>>a>>b>>n;
+		F[1]=a;
+		F[2]=b;
+		for(j=3;j<=n;j++){
+			if(j%2==0)
+				F[j]=F[j-1]+F[j-2]+F[j-3];
+			if(j%2!=0)
+				F[j]=F[j-1]+F[j-2];
+		}
+		cout<<F[n]<<endl;
+	}
+	
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int a,b,i,N,c;
+	cin>>N;
+	for(i=0;i<N;i++){
+		cin>>a>>b;
+		c=a+b;
+		while(c>=100){
+			c-=100;
+		}
+		cout<<c<<endl;
+	}
+} 

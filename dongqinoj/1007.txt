@@ -1,0 +1,20 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+int main()
+{
+	float a,b=0;
+	int i,count1=0,count2=0;
+	for(i=0;i<20;i++){
+		cin>>a;
+		if(a>0){
+			count1++;
+			b+=a;	
+		}
+		if(a<0){
+			count2++;
+		}
+		
+	}
+	printf("%d\n%.2f",count2,b/count1);
+} 

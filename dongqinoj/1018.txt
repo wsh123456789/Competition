@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std; 
+int main() {
+     string str1,str2;
+     int n,j;
+     cin>>n;
+     for(j=0;j<n;j++){
+     cin>>str1>>str2;
+     int length1=str1.length(),length2=str2.length(),lengthmax=((length1>length2)?length1:length2)+1; 
+     int *p1=new int[lengthmax];
+     int *p2=new int[lengthmax];
+     
+     for(int i=0;i<lengthmax;i++)
+     {
+         if(i>=length1)
+             p1[i]=0;
+         else
+             p1[length1-i-1]=str1[i]-48;
+         if(i>=length2)
+             p2[i]=0;
+         else
+             p2[length2-i-1]=str2[i]-48;
+     }
+     
+     
+     for(int i=0;i<lengthmax-1;i++)
+     {
+         p1[i+1]+=(p1[i]+p2[i])/10;
+        p1[i]=(p1[i]+p2[i])%10;
+    }
+    cout<<"Case"<<" "<<j+1<<":"<<endl;
+    cout<<str1<<" "<<"+"<<" "<<str2<<" "<<"="<<" ";
+    	for(int i=0;i<lengthmax;i++)
+     {
+         if(!(i==0&&p1[lengthmax-1]==0))
+             cout<<p1[lengthmax-1-i];
+             
+     }
+     cout<<endl;
+ }
+     return 0;
+ }

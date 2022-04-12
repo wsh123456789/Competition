@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int N=112345;
+struct node
+{
+    int ad;
+    int next;
+    int data;
+}Link[N];
+ 
+int main()
+{
+    int head,n;
+    scanf("%d%d",&head,&n);
+    for(int i=0;i<=n-1;i++)
+    {
+        int ad,data,next;
+        scanf("%d%d%d",&ad,&data,&next);
+        Link[ad].ad=ad;
+        Link[ad].data=data;
+        Link[ad].next=next;
+    }
+    int p=head;
+    set<int>ss;
+    vector<node>v,vv;
+    while(p!=-1)
+    {
+        int tmp=abs(Link[p].data);
+        if(ss.count(tmp)==0)
+        {
+            ss.insert(tmp);
+            v.push_back(Link[p]);
+        }
+        else
+        {
+            vv.push_back(Link[p]);
+        }
+        p=Link[p].next;
+    }
+    p=head;
+    for(int i=0;i<(int)v.size()-1;i++)
+    {
+        printf("%05d %d %05d\n",v[i].ad,v[i].data,v[i+1].ad);
+    }
+    if(v.size()>0) printf("%05d %d -1\n",v[v.size()-1].ad,v[v.size()-1].data);
+    for(int i=0;i<(int)vv.size()-1;i++)
+    {
+        printf("%05d %d %05d\n",vv[i].ad,vv[i].data,vv[i+1].ad);
+    }
+    if(vv.size()>0) printf("%05d %d -1\n",vv[vv.size()-1].ad,vv[vv.size()-1].data);
+    return 0;
+}

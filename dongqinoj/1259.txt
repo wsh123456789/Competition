@@ -1,0 +1,15 @@
+#include<stdio.h>
+int f(int N)
+{
+	if (N < 4)
+		return 1;
+	else
+		return f(N - 1) + f(N- 3);
+}
+int main()
+{
+	int N;
+	scanf("%d", &N);
+	printf("%d",f(N));
+}
+ 

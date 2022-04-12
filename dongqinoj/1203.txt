@@ -1,0 +1,27 @@
+#include<iostream>
+#include<stdio.h>
+#include<string.h>
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int N;
+	cin>>N;
+	int a[101],b[101],c[101],d[101],e[101],f[101];
+	for(int i=0;i<N;i++){
+		cin>>a[i]>>b[i]>>c[i];
+		cin>>d[i]>>e[i]>>f[i];
+		int ah=c[i]+f[i];
+		int bh=b[i]+e[i];
+		int ch=a[i]+d[i];
+		while(ah>59){//不能用if**** 
+			bh++;
+			ah-=60;
+		}
+		while(bh>59){
+			ch++;
+			bh-=60;
+		}
+		cout<<ch<<" "<<bh<<" "<<ah<<endl;
+	}
+	return 0;
+}
